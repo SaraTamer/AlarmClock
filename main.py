@@ -43,12 +43,19 @@ time_required = Label(alarm_app, text="Please enter the alarm time", height=2, f
 time_required.pack()
 
 hour = StringVar()
-hour.set('00')
+if len(str(datetime.datetime.now().minute)) == 1:
+    hour.set('0' + str(datetime.datetime.now().minute))
+else:
+    hour.set(str(datetime.datetime.now().hour))
 hour_input = Entry(alarm_app, textvariable=hour, width=2, font=("Arial", 40), borderwidth=0)
 hour_input.place(x=300, y=100)
 
 minute = StringVar()
-minute.set('00')
+if len(str(datetime.datetime.now().minute)) == 1:
+    minute.set('0' + str(datetime.datetime.now().minute))
+else:
+    minute.set(str(datetime.datetime.now().minute))
+
 minute_input = Entry(alarm_app, textvariable=minute, width=2, font=("Arial", 40), borderwidth=0)
 minute_input.place(x=380, y=100)
 
